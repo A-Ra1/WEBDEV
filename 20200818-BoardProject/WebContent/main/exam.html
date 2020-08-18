@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<!-- CSS / JavaScript -->
+</head>
+<body>
+<!-- 
+ 	화면 출력 => HTML : <> 태그+속성
+ 			  <a href="">
+ 			  == =======
+ 			 태그 	속성 ==> 사용자 정의가 없다 (지정된 태그만 사용이 가능)
+ 	<문자 관련> : 제목
+ 		<h1> ~ <h6>
+ 		<strong> <em> : 강조체
+ 		<font> : 글꼴, 색상변경
+ 		<p> : 단락
+ 		<br> : 다음줄 출력
+ 		<hr> : 수평선
+ 		<pre> : 있는 그대로 출력
+ 		<sup> : 위첨자
+ 	<목록> 
+ 		<ul> : 순서가 없는 경우
+ 		<ol> : 순서가 존재
+ 		<dl> : 데이터 목록 <dt> : 데이터 제목 <dd> : 데이터 설명
+ 		<table> <tr> : 한줄을 만드는 경우 <th> : 테이블 제목 <td> : 데이터 첨부
+ 		=> <caption> : 테이블 제목
+ 	<입력>
+ 		<input type=""> : 
+ 			   type="text" 한줄 문자열 => ID, 이름
+ 			   type="file" => 파일 업로드 
+ 			   type="password" => 비밀번호 입력
+ 			   type="hidden" => 사용자는 볼 수 없고 데이터만 존재
+ 			   type="image" button(submit) => 데이터 전송버튼
+ 			   type="date" => 달력
+ 			   type="submit"
+ 			   type="button"
+ 		<select> : comboBox
+ 		<textarea> : 여러줄의 문자열 입력
+ 	<이동>
+ 		<a href="이동할 파일명"> : 일반 이동
+ 		<form action="이동할 파일명"> : 데이터 전송과 동시에 이동
+	<기타>
+		<img> 이미지 출력
+		<img src="파일 경로명">
+		<div> : 화면 분할, 카드 .. (테이블 대신  div를 더 많이 사용) 
+		<span> : 특정부분만 변경 => CSS
+ -->
+ <a href="http://www.daum.net" target="_blank">다음</a> 
+ <br>
+ <img src="Image/movie.jpeg" width=350 height=450 title="제목">
+ <input type="text" size=15> <br>
+ <input type="password" size=15> <br>
+ <input type="hidden" size=15> <br>
+ <input type="file" size=15> <br>
+ <input type="date" size=15> <br>
+ <input type="image" src="Image/movie.jpeg" width=100 height=30> <br>
+ <input type="submit" value="전송"> <br>
+ <input type="button" value="확인"> <br>
+ <select>
+  <option>이름</option>
+  <option>제목</option>
+  <option>내용</option>
+ </select><br>
+ <textarea rows="10" cols="50"></textarea><br>
+ 성별 : <input type=radio name=sex> 남자 <input type=radio name=sex> 여자<br>
+ <!-- 여러개 선택 방지 : name으로 묶어준다 -->
+ 취미 : <input type="checkbox">등산 <input type="checkbox">개발
+ <input type="checkbox">공부 <input type="checkbox">낚시
+ <input type="checkbox">운동
+ 
+</body>
+</html>
