@@ -68,7 +68,7 @@ public class MovieMain extends HttpServlet {
 		for(MovieVO vo:list) {
 		out.println("<div class=\"col-md-3\">");
 		out.println("<div class=\"thumbnail\">");
-		out.println("<a href=\"#\">");
+		out.println("<a href=MovieDetail?no="+vo.getNo()+">"); // 매개변수 이용불가 => ?로 대체 no(변수)값대입, MovieDetail로 값을 넘김
 		out.println("<img src="+vo.getPoster()+" alt=\"Lights\" style=\"width:100%\">");
 		out.println("<div class=\"caption\">");
 		String str=vo.getTitle();

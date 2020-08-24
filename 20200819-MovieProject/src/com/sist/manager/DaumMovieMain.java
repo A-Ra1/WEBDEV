@@ -71,7 +71,8 @@ public class DaumMovieMain {
 			    	 vo.setScore(score.text());
 			    	 vo.setActor(actor.text());
 			    	 vo.setDirector(director.text());
-			    	 vo.setStory(story.text());
+			    	 vo.setStory(story.text()); // (story.html()); => html 태그 포함 읽기
+			    	 
 			    	 vo.setKey(youtubeGetKey(title.text()));
 			    	 
 			    	 dao.movieInsert(vo);

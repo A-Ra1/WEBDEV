@@ -37,7 +37,8 @@ public class NewsMain extends HttpServlet {
 			out.println("<td rowspan=3 width=40%>");
 			String poster=vo.getPoster();
 			poster=poster.substring(0,poster.lastIndexOf(")"));
-			out.println("<img src="+poster+" width=100%>");
+			out.println("<a href="+vo.getLink()+">");
+			out.println("<img src="+poster+" width=100%</a>");
 			out.println("</td>");
 			out.println("<td width=60%>"+vo.getTitle()+"</td>");
 			out.println("<tr>");
