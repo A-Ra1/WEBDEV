@@ -4,8 +4,15 @@
     pageEncoding="UTF-8" import="java.util.*, java.text.*"%>
 <%
 
+String strPage=request.getParameter("page");
+if(strPage==null)
+		strPage="1";
+
+
 MusicDAO dao=new MusicDAO();
-ArrayList<MovieVO> list=dao.movieAllData();
+int curpage=Integer.parseInt(strPage);
+int totalpage=dao.movieTotalPage();
+ArrayList<MovieVO> list=dao.movieAllData(curpage);
 
 %>
 <!DOCTYPE html>
@@ -48,6 +55,16 @@ ArrayList<MovieVO> list=dao.movieAllData();
   %>
   </tbody>
  </table>
+  <table class="table_content" width=800>
+    <tr>
+     <td align=left></td>
+     <td align="right">
+      <a href="movie.jsp?page=<%=curpage>1?curpage-1:curpage%>">이전</a>
+      <%=curpage %>page / <%=totalpage %> pages
+      <a href="movie.jsp?page=<%=curpage<totalpage?curpage+1:curpage%>">다음</a>
+     </td>
+    </tr>
+   </table>
  </center>
 </body>
 </html>
