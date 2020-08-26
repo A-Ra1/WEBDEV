@@ -1,10 +1,9 @@
 <%@page import="com.sist.dao.MusicDAO"%>
 <%@page import="com.sist.dao.MovieVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*, java.text.*"%>
+    pageEncoding="UTF-8" import="java.util.*,java.text.*"%>
 <%
-
-String strPage=request.getParameter("page");
+	String strPage=request.getParameter("page");
 if(strPage==null)
 		strPage="1";
 
@@ -13,7 +12,6 @@ MusicDAO dao=new MusicDAO();
 int curpage=Integer.parseInt(strPage);
 int totalpage=dao.movieTotalPage();
 ArrayList<MovieVO> list=dao.movieAllData(curpage);
-
 %>
 <!DOCTYPE html>
 <html>
