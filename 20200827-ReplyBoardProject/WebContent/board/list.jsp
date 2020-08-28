@@ -1,3 +1,4 @@
+
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*, com.sist.dao.*"%>
@@ -19,7 +20,6 @@
 	int totalpage=(int)(Math.ceil(count/10.0));
 	count=count-((curpage*10)-10);
 	
-	
 %>    
 <!DOCTYPE html>
 <html>
@@ -36,7 +36,8 @@
 	<td>
 	 <a href="insert.jsp">등록</a>
 	</td>
-   </tr> 	
+   </tr> 
+   </table>	
   <table class="table_content" width=700>
    <tr>
     <th width=10%>번호</th>
@@ -64,7 +65,7 @@
     <%		
     	}
     %>
-    <%=vo.getSubject() %>
+    <a href="detail.jsp?no=<%=vo.getNo()%>&page=<%=curpage%>"><%=vo.getSubject() %>
     &nbsp;
     <%
      Date date=new Date();
@@ -90,23 +91,26 @@
   <table class="table_content" width=700>
    <tr>
    <td align=left>
+   <form method=post action="find.jsp">
    Search:
    <%--
    	WHERE name LIKE '%%'
     --%>
-   <select name=fd>
-    <option values="name">이름</option>
-    <option values="subject">제목</option>
-    <option values="content">내용</option>
+   <select name=fs>
+    <option value="name">이름</option>
+    <option value="subject">제목</option>
+    <option value="content">내용</option>
    </select>
     <input type=text name=ss size=10>
     <input type="submit" values="찾기"> 
+   </form>
    </td>
    <td align="right">
    <a href="list.jsp?page=<%=curpage>1?curpage-1:curpage%>">이전</a>
     <%=curpage %> page / <%=totalpage %> pages
    <a href="list.jsp?page=<%=curpage<totalpage?curpage+1:curpage%>">다음</a>
    </td>
+   </tr>
    </table>
  </center>
 </body>
