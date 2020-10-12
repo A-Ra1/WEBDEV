@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.dao.board-mapper">
+ <select id="boardListData" resultType="BoardVO" parameterType="hashmap">
+  SELECT no, subject, name, regdate, hit, num
+  FROM (SELECT no, subject, name, regdate, hit, rownum as num
+  FROM (SELECT no, subject, name, regdate, hit
+  FROM freeboard ORDER BY no DESC))
+  WHERE num BETWEEN #{start} AND #{end}
+ </select>
+ <select id="boardTotalPage" resultType="int">
+  SELECT CEIL(COUNT(*)/10.0) FROM freeboard
+ </select>
+ <!-- 상세보기 (조회수 증가, 게시물 1개를 읽어온다)
+  mybatis에서 태그에 sql문장은 1번만 사용가능
+   -->
+ <!-- 조회수 증가 -->
+ <!-- 
+ 	resulttype이 없는 경우 void
+ 	parametertype(매개변수) => (int no)
+  -->
+ <update id="hitIncrement" parameterType="int">
+ UPDATE freeboard SET
+ hit=hit+1
+ WHERE no=#{no}
+ </update>
+ <select id="boardDetailData" resultType="BoardVO" parameterType="int">
+  <!-- public BoardVO boardDetailData(int no) 
+  			  ======= 리턴형         		  ====== 매개변수
+  -->
+  SELECT no, name, subject, content, regdate, hit
+  FROM freeboard
+  WHERE no=#{no}
+ </select>  
+</mapper>
